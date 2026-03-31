@@ -1,7 +1,7 @@
 import Icon from '@/components/ui/icon';
 
 interface ProfilePanelProps {
-  user: { name: string; username: string; avatar: string; phone?: string; email?: string };
+  user: { id: number; name: string; username: string; avatar: string };
 }
 
 const stats = [
@@ -39,29 +39,16 @@ export default function ProfilePanel({ user }: ProfilePanelProps) {
       {/* Info */}
       <div className="px-5 space-y-3 pb-6">
         <div className="glass rounded-2xl p-4 space-y-3">
-          <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Контакты</p>
-          {user.phone && (
-            <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-xl grad-bg flex items-center justify-center shrink-0">
-                <Icon name="Phone" size={15} className="text-white" />
-              </div>
-              <div>
-                <p className="text-xs text-muted-foreground">Телефон</p>
-                <p className="text-sm text-white">{user.phone}</p>
-              </div>
+          <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Мой аккаунт</p>
+          <div className="flex items-center gap-3">
+            <div className="w-9 h-9 rounded-xl grad-bg flex items-center justify-center shrink-0">
+              <Icon name="AtSign" size={15} className="text-white" />
             </div>
-          )}
-          {user.email && (
-            <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-xl grad-bg-cool flex items-center justify-center shrink-0">
-                <Icon name="Mail" size={15} className="text-white" />
-              </div>
-              <div>
-                <p className="text-xs text-muted-foreground">Email</p>
-                <p className="text-sm text-white">{user.email}</p>
-              </div>
+            <div>
+              <p className="text-xs text-muted-foreground">Username</p>
+              <p className="text-sm text-white">@{user.username}</p>
             </div>
-          )}
+          </div>
         </div>
 
         {/* Verification badge */}
